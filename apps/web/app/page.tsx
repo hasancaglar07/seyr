@@ -150,7 +150,7 @@ export default async function HomePage() {
   return (
     <main className="bg-white">
       <section className="relative w-full mb-4 sm:mb-6">
-        <div className="relative flex min-h-[85vh] sm:min-h-[800px] w-full flex-col items-center justify-between rounded-[24px] sm:rounded-[48px] overflow-hidden bg-slate-100 pb-12 sm:pb-20">
+        <div className="relative flex min-h-[85vh] sm:min-h-[880px] w-full flex-col items-center justify-between rounded-[24px] sm:rounded-[48px] overflow-hidden bg-slate-100 pb-20 sm:pb-24">
           {/* Fullscreen Background Image Slider */}
           <HeroSlider />
 
