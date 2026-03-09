@@ -32,6 +32,7 @@
     ]
   },
   "optionalDependencies": {
-    "@tailwindcss/oxide-linux-x64-gnu": "4.2.1"
+    "@tailwindcss/oxide-linux-x64-gnu": "4.2.1",
+    "@tailwindcss/oxide-win32-x64-msvc": "4.2.1"
   }
 }
