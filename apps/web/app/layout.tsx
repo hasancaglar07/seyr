@@ -31,11 +31,21 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr" className={cn(display.variable, mono.variable, "font-sans antialiased")}>
-      <body className="app-shell">
-        <SiteNav />
-        {children}
-        <StickyPlayerDock />
-        <SiteFooter />
+      <body className="app-shell bg-white">
+        {/* Global Fixed Frame (Universal White Border) */}
+        <div className="fixed inset-x-0 top-0 z-[9999] h-1.5 sm:h-4 bg-white pointer-events-none" />
+        <div className="fixed inset-x-0 bottom-0 z-[9999] h-1.5 sm:h-4 bg-white pointer-events-none" />
+        <div className="fixed inset-y-0 left-0 z-[9999] w-1.5 sm:w-4 bg-white pointer-events-none" />
+        <div className="fixed inset-y-0 right-0 z-[9999] w-1.5 sm:w-4 bg-white pointer-events-none" />
+
+        <div className="relative p-1.5 sm:p-4 min-h-screen">
+          <SiteNav />
+          <main className="relative z-0">
+            {children}
+          </main>
+          <StickyPlayerDock />
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

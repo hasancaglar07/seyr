@@ -55,77 +55,93 @@ export async function SiteFooter() {
   ].filter((item) => Boolean(item.href));
 
   return (
-    <footer className="relative z-20 mt-24 px-4 pb-32 pt-12">
-      <div className="mx-auto w-full max-w-7xl rounded-[34px] bg-slate-950 px-8 py-10 text-slate-200 shadow-[0_28px_60px_rgba(15,23,42,0.18)] sm:px-10">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr_1fr]">
-          <div>
-            <div className="flex items-center gap-3">
-              <img src={LOGO_URL} alt="Seyr FM Logo" className="h-12 w-12 rounded-full border border-white/[0.12] bg-white/95 p-1 object-contain" />
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Seyr Dijital</p>
-                <h2 className="text-2xl font-bold tracking-tight text-white">Seyr FM</h2>
+    <footer className="relative mt-24 w-full pt-10">
+      <div className="mx-auto max-w-[1140px] px-6">
+        {/* HYPER-PREMIUM CTA CARD */}
+        <div className="relative -mb-32 z-30 overflow-hidden rounded-[40px] bg-white shadow-[0_40px_120px_-20px_rgba(0,0,0,0.22)] group">
+          {/* Full Image Background with Subtle Zoom on Hover */}
+          <img src="/assets/6giNjxR6OgghmjjphzMa2EDcM.avif" alt="Background" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-black/25 group-hover:bg-black/20 transition-colors duration-500" />
+
+          <div className="relative z-10 p-12 sm:p-24 text-center flex flex-col items-center">
+            <h3 className="text-[34px] sm:text-[54px] font-[600] tracking-[-0.05em] text-white leading-[1.05] mb-8 max-w-[640px] text-balance">
+              Duygulara hitap eden bir deneyimle tanışın.
+            </h3>
+
+            {/* Refined Control Group */}
+            <div className="w-full max-w-[520px] flex flex-col sm:flex-row gap-2 bg-white/10 backdrop-blur-3xl p-2 rounded-[26px] border border-white/20 shadow-2xl transition-all duration-500 hover:bg-white/15">
+              <div className="flex-1 px-7 py-4 text-white/80 text-[15px] font-medium text-left">
+                Seyr FM Dünyası...
               </div>
+              <button className="h-[58px] px-10 rounded-[20px] bg-[#FFD666] text-[#0A3D39] font-bold text-[14px] transition-all hover:bg-white hover:shadow-xl active:scale-95 whitespace-nowrap outline-none">
+                Canlı Dinle →
+              </button>
             </div>
-
-            <p className="mt-5 max-w-md text-sm leading-8 text-slate-400">
-              Canli yayin, programlar, programcilar ve haftalik akis tek merkezde. Daha temiz, daha kurumsal ve daha hizli bir
-              deneyim icin sayfa duzeni yeniden kurgulandi.
-            </p>
-
-            <div className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300">
-              7/24 Dijital Yayin
-            </div>
-          </div>
-
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Sayfalar</p>
-            <div className="mt-5 grid grid-cols-2 gap-2 text-sm">
-              {links.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-xl border border-transparent px-3 py-2 text-slate-300 transition hover:border-white/10 hover:bg-white/5 hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Iletisim</p>
-            <div className="mt-5 space-y-3 text-sm text-slate-300">
-              {contact.phone ? <p>{contact.phone}</p> : null}
-              {contact.email ? (
-                <a href={`mailto:${contact.email}`} className="block transition hover:text-white">
-                  {contact.email}
-                </a>
-              ) : null}
-              {contact.address ? <p className="leading-7 text-slate-400">{contact.address}</p> : null}
-            </div>
-
-            {socials.length > 0 ? (
-              <div className="mt-5 flex flex-wrap gap-2">
-                {socials.map((item) => (
-                  <a
-                    key={item.key}
-                    href={item.href ?? "#"}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-slate-200 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
-                    aria-label={item.key}
-                  >
-                    <SocialIcon name={item.key} />
-                  </a>
-                ))}
-              </div>
-            ) : null}
           </div>
         </div>
+      </div>
 
-        <div className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-5 text-xs uppercase tracking-[0.14em] text-slate-500 sm:flex-row sm:items-center">
-          <p>Copyright {new Date().getFullYear()} Seyr Dijital</p>
-          <p>All rights reserved</p>
+      {/* Main Solidroad Ultra-Dark Green Footer Area */}
+      <div className="bg-[#0A3D39] pt-60 pb-16 rounded-t-[60px] sm:rounded-t-[100px] relative z-20">
+        <div className="mx-auto max-w-[1140px] px-10">
+          <div className="flex flex-col lg:flex-row gap-20 justify-between items-start border-b border-white/5 pb-24">
+
+            {/* Massive White Logo on Left (Solidroad Bird-style placement) */}
+            <div className="flex-shrink-0">
+              <img src={LOGO_URL} alt="Seyr FM" className="h-[50px] sm:h-[60px] w-auto brightness-0 invert opacity-90 transition-opacity hover:opacity-100" />
+              <p className="mt-8 text-white/20 text-[11px] font-bold uppercase tracking-[0.4em] leading-relaxed">
+                Huzurun Adresi <br /> Sesin Merhemi
+              </p>
+            </div>
+
+            {/* Triple Grid Columns on Right */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-16 sm:gap-24 lg:pt-10">
+              <div>
+                <h4 className="text-white/10 text-[10px] font-bold uppercase tracking-[0.3em] mb-10">Menü</h4>
+                <ul className="flex flex-col gap-5">
+                  {links.slice(0, 4).map(l => (
+                    <li key={l.href}>
+                      <Link href={l.href} className="text-white/40 hover:text-white text-[14px] font-medium transition-colors">{l.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-white/10 text-[10px] font-bold uppercase tracking-[0.3em] mb-10">Kurumsal</h4>
+                <ul className="flex flex-col gap-5">
+                  <li><Link href="/kurumsal" className="text-white/40 hover:text-white text-[14px] font-medium transition-colors">Hakkımızda</Link></li>
+                  <li><Link href="/iletisim" className="text-white/40 hover:text-white text-[14px] font-medium transition-colors">İletişim</Link></li>
+                  <li><Link href="/programlar" className="text-white/40 hover:text-white text-[14px] font-medium transition-colors">Programlar</Link></li>
+                </ul>
+              </div>
+
+              <div className="col-span-2 sm:col-span-1">
+                <h4 className="text-white/10 text-[10px] font-bold uppercase tracking-[0.3em] mb-10">Sosyal</h4>
+                <ul className="flex flex-col gap-5">
+                  {socials.map(s => (
+                    <li key={s.key}>
+                      <a href={s.href ?? "#"} target="_blank" rel="noreferrer" className="text-white/40 hover:text-white text-[14px] font-medium transition-colors capitalize">{s.key}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 flex flex-col sm:flex-row justify-between items-center gap-8">
+            <div className="flex items-center gap-10">
+              <p className="text-white/10 text-[9px] font-bold uppercase tracking-[0.4em]">
+                © {new Date().getFullYear()} SEYR DİJİTAL
+              </p>
+              <span className="h-4 w-[1px] bg-white/5 hidden sm:block" />
+              <p className="text-white/10 text-[9px] font-bold uppercase tracking-[0.4em]">HER HAKKI SAKLIDIR</p>
+            </div>
+            <div className="flex gap-12">
+              <p className="text-white/10 text-[9px] font-bold uppercase tracking-[0.3em] cursor-pointer hover:text-white/40 transition-colors">YASAL</p>
+              <p className="text-white/10 text-[9px] font-bold uppercase tracking-[0.3em] cursor-pointer hover:text-white/40 transition-colors">GİZLİLİK</p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

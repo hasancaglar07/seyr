@@ -149,28 +149,18 @@ export default async function HomePage() {
 
   return (
     <main className="bg-white">
-      {/* 1. HERO SECTION (Solidroad padding style) */}
-      <section className="relative w-full px-3 sm:px-6 lg:px-8 pt-3 sm:pt-6 mb-16 sm:mb-20">
-        <div className="relative flex min-h-[85vh] sm:min-h-[900px] w-full flex-col items-center justify-between rounded-[40px] sm:rounded-[64px] overflow-hidden bg-slate-950 pb-24 sm:pb-36">
+      <section className="relative w-full mb-8 sm:mb-12">
+        <div className="relative flex min-h-[85vh] sm:min-h-[850px] w-full flex-col items-center justify-between rounded-[24px] sm:rounded-[48px] overflow-hidden bg-slate-100 pb-16 sm:pb-24">
           {/* Fullscreen Background Image Slider */}
           <HeroSlider />
 
-          {/* Top Centered Title (Pushed down a bit to match the reference) */}
-          <div className="relative z-10 w-full px-4 text-center mt-[18vh] sm:mt-[22vh]">
-            <FadeInUp>
-              <h1 className="mx-auto max-w-4xl font-serif text-5xl sm:text-6xl lg:text-[4.5rem] leading-[1.1] tracking-tight text-white drop-shadow-2xl">
-                Seyr FM
-              </h1>
-            </FadeInUp>
-          </div>
+          {/* Title removed per user request */}
 
           {/* Glass Card Removed intentionally to make room for the Dynamic Player */}
 
           {/* 3. LOGO MARQUEE OVERLAY (Inside the Hero) */}
           <div className="absolute bottom-0 left-0 right-0 z-20 w-full pb-6 sm:pb-10 overflow-hidden">
-            {/* Left/Right Fade Gradients for smooth entering/leaving over the image */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-40 z-30 bg-gradient-to-r from-slate-900/80 to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-40 z-30 bg-gradient-to-l from-slate-900/80 to-transparent pointer-events-none" />
+            {/* Removed side mask gradients for full brightness */}
 
             <div className="flex w-[300%] sm:w-[200%] animate-infinite-scroll hover:[animation-play-state:paused] items-center">
               {/* Double the logos so the loop is seamless */}
@@ -186,12 +176,12 @@ export default async function HomePage() {
                   ].map((logo) => (
                     <button
                       key={`${idx}-${logo.id}`}
-                      className="group flex mx-4 sm:mx-8 shrink-0 transition-transform duration-500 hover:-translate-y-1.5 active:scale-95 cursor-pointer relative z-40"
+                      className="group flex mx-4 sm:mx-8 shrink-0 transition-transform duration-500 hover:-translate-y-1 active:scale-95 cursor-pointer relative z-40 bg-transparent border-none outline-none"
                     >
                       <img
                         src={logo.src}
                         alt={logo.alt}
-                        className="h-7 sm:h-9 w-auto object-contain brightness-0 invert opacity-40 transition-all duration-500 group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
+                        className="h-7 sm:h-9 w-auto object-contain brightness-0 invert opacity-100"
                       />
                     </button>
                   ))}
@@ -203,7 +193,7 @@ export default async function HomePage() {
       </section>
 
       {/* 4. PROGRAMS SECTION (Solidroad Minimalist Cards) */}
-      <section id="programlar" className="bg-white pt-8 sm:pt-10 pb-20 sm:pb-28">
+      <section id="programlar" className="bg-white pt-4 sm:pt-6 pb-12 sm:pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeInUp>
             <div className="mx-auto max-w-[750px] text-center mb-12 sm:mb-16 flex flex-col items-center">
@@ -214,17 +204,17 @@ export default async function HomePage() {
             </div>
           </FadeInUp>
 
-          <div className="mx-auto max-w-[940px] grid gap-6 md:gap-8 md:grid-cols-3">
+          <div className="mx-auto max-w-[940px] grid gap-5 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-2 sm:px-0">
             {programs.slice(0, 3).map((program, index) => {
               const pastelColors = ['bg-[#FFF6CD]', 'bg-[#D2EFF1]', 'bg-[#D5EED9]'];
               const bgColor = pastelColors[index % pastelColors.length];
 
               return (
                 <FadeInUp key={program.id} delay={index * 0.1} className="h-full">
-                  <article className={cn("group flex h-full flex-col overflow-hidden rounded-[24px] transition-transform duration-500 hover:-translate-y-1.5 p-6 sm:p-7 min-h-[420px] sm:min-h-[480px]", bgColor)}>
+                  <article className={cn("group flex h-full flex-col overflow-hidden rounded-[24px] transition-all duration-500 hover:-translate-y-1.5 p-5 sm:p-7 min-h-[380px] sm:min-h-[480px]", bgColor)}>
 
                     {/* Floating Graphic Area at Top */}
-                    <div className="relative mb-6 sm:mb-8 w-full aspect-[4/5] shrink-0 transition-transform duration-500 group-hover:scale-[1.03]">
+                    <div className="relative mb-5 sm:mb-8 w-full aspect-[4/5] shrink-0 transition-transform duration-500 group-hover:scale-[1.03]">
                       <img
                         src={program.coverImageUrl ?? LOGO_URL}
                         alt={program.title}
@@ -234,11 +224,11 @@ export default async function HomePage() {
                     </div>
 
                     {/* Text Content at Bottom */}
-                    <div className="mt-auto mb-2 relative z-10 shrink-0">
-                      <h3 className="mb-2 text-[17px] sm:text-[19px] font-[700] tracking-[-0.015em] text-slate-900 leading-[1.2] line-clamp-2">
+                    <div className="mt-auto mb-1 relative z-10 shrink-0">
+                      <h3 className="mb-2 text-[16px] sm:text-[19px] font-[700] tracking-[-0.015em] text-slate-900 leading-[1.2] line-clamp-2">
                         {program.title}
                       </h3>
-                      <p className="text-[12.5px] sm:text-[13px] font-[500] leading-[1.5] text-slate-700/80 line-clamp-3">
+                      <p className="text-[12px] sm:text-[13px] font-[500] leading-[1.5] text-slate-700/80 line-clamp-3">
                         {program.summary && program.summary.length > 0
                           ? program.summary
                           : "Bu programla ilgili detaylı yayın saatleri ve zengin arşiv içeriklerine doğrudan erişin."}
@@ -252,10 +242,10 @@ export default async function HomePage() {
           </div>
 
           <FadeInUp delay={0.3}>
-            <div className="mt-16 flex justify-center">
+            <div className="mt-12 sm:mt-16 flex justify-center px-4">
               <Link
                 href="/programlar"
-                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-sm font-bold uppercase tracking-widest text-white transition-all hover:scale-105 hover:bg-slate-800"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-[13px] font-bold uppercase tracking-widest text-white transition-all hover:scale-105 active:scale-95"
               >
                 Tüm Programları İncele
                 <ArrowUpRightIcon />
@@ -266,7 +256,7 @@ export default async function HomePage() {
       </section >
 
       {/* 4.5 ABOUT / INFO SECTION (Solidroad Case Study Style) */}
-      <section className="bg-[#CEEBCB] py-16 sm:py-24 w-full flex justify-center overflow-hidden">
+      <section className="bg-[#CEEBCB] py-10 sm:py-16 w-full flex justify-center overflow-hidden">
         <div className="mx-auto w-full max-w-[1050px] px-6 sm:px-8 grid grid-cols-1 md:grid-cols-[340px_1fr] gap-10 md:gap-16 items-center">
 
           {/* Left Side: Large Rounded Image */}
@@ -336,8 +326,8 @@ export default async function HomePage() {
       </section>
 
       {/* 5. PRESENTERS SECTION (Solidroad Marquee Collage Style) */}
-      <section id="programcilar" className="bg-[#FEFCF8] pt-24 pb-32 overflow-hidden border-b border-slate-100">
-        <FadeInUp className="mx-auto max-w-[850px] px-6 text-center mb-24 flex justify-center">
+      <section id="programcilar" className="bg-white pt-12 pb-16 overflow-hidden">
+        <FadeInUp className="mx-auto max-w-[850px] px-6 text-center mb-12 flex justify-center">
           <h2 className="text-[22px] sm:text-[32px] md:text-[38px] font-[500] leading-[1.2] text-[#0A3D39] tracking-[-0.035em] text-balance">
             Seyr FM yayıncıları, her dinleyici etkileşiminde kalite çıtasını yükselterek tüm ruhsal deneyimleri sürekli iyileştirir.
           </h2>
@@ -346,8 +336,8 @@ export default async function HomePage() {
         {/* Marquee Container */}
         <div className="relative w-full max-w-[2000px] mx-auto flex items-center">
           {/* Left/Right Fade Gradients for smooth entering/leaving */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-48 z-10 bg-gradient-to-r from-[#FEFCF8] to-transparent pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-48 z-10 bg-gradient-to-l from-[#FEFCF8] to-transparent pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-48 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-48 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none" />
 
           <div className="flex w-max animate-infinite-scroll hover:[animation-play-state:paused] items-center gap-4 sm:gap-6 px-4 py-8">
             {/* Repeat 3 times for infinite scroll illusion */}
@@ -390,96 +380,141 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 6. WEEKLY SCHEDULE SECTION */}
-      < section id="akis" className="bg-[#F7F9FB] py-16 sm:py-20" >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeInUp>
-            <div className="mx-auto max-w-4xl text-center mb-10 flex flex-col items-center">
-              {/* Top Calendar Icon */}
-              <div className="mb-6 flex justify-center text-slate-800">
-                <svg viewBox="0 0 24 24" className="h-7 w-7 stroke-current fill-none stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                  <line x1="16" y1="2" x2="16" y2="6" />
-                  <line x1="8" y1="2" x2="8" y2="6" />
-                  <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
+      {/* 6. WEEKLY SCHEDULE SECTION (Solidroad Bento Grid Style) */}
+      <section id="akis" className="bg-white py-12 sm:py-20 overflow-hidden">
+        <div className="mx-auto max-w-[1100px] px-6">
+
+          {/* Bento Grid Layout - Solidroad Style */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+
+            {/* 1. Large Feature Card: NOW PLAYING */}
+            <FadeInUp delay={0.1} className="md:col-span-7">
+              <div className="group relative h-full min-h-[420px] sm:min-h-[480px] overflow-hidden rounded-[40px] bg-white border border-slate-100 p-8 sm:p-12 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)]">
+
+                {/* Floating 3D Graphic (AVIF) */}
+                <div className="absolute right-[-20px] top-4 w-[280px] sm:w-[360px] opacity-90 transition-transform duration-700 group-hover:translate-y-[-10px] group-hover:rotate-[-2deg] pointer-events-none">
+                  <img src="/assets/5pYqX7l5zApovaOAAc9NILbFBi4.avif" alt="Graphic" className="w-full h-auto drop-shadow-2xl" />
+                </div>
+
+                <div className="relative z-10 w-full max-w-[320px]">
+                  <div className="flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-indigo-600 mb-8 w-max">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                    </span>
+                    Şu An Yayında
+                  </div>
+
+                  <h3 className="text-[34px] sm:text-[44px] font-[600] tracking-[-0.04em] text-slate-900 leading-[1.05] mb-6">
+                    {nextEntry?.title ?? "Ruhun Sesi"}
+                  </h3>
+
+                  <div className="p-5 rounded-[24px] bg-slate-50/80 backdrop-blur-sm border border-slate-100 flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                        <PlayIcon />
+                      </div>
+                      <div>
+                        <p className="text-[14px] font-[700] text-slate-900 leading-none mb-1">{nextEntry?.presenterName ?? "Seyr FM"}</p>
+                        <p className="text-[11px] font-[600] text-indigo-500 uppercase tracking-widest">{nextEntry?.startsAt ?? "00:00"} — Canlı</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative z-10">
+                  <p className="text-slate-400 text-[13px] font-medium tracking-tight">
+                    Sesin, sözün ve gönlün buluşma noktası.
+                  </p>
+                </div>
               </div>
+            </FadeInUp>
 
-              {/* Large Serif Title */}
-              <h2 className="text-[2.5rem] sm:text-5xl lg:text-[4rem] font-serif font-normal tracking-tight text-slate-900 leading-[1.1] drop-shadow-sm mb-4">
-                Haftalık Yayın Akışı
-              </h2>
-            </div>
+            {/* 2. Secondary Card: VIBRANT SCENERY */}
+            <FadeInUp delay={0.2} className="md:col-span-5">
+              <div className="relative h-full min-h-[340px] overflow-hidden rounded-[40px] group">
+                <img
+                  src="/assets/fpFXRHq19ovCpz7xW9BVkwlyEuA.avif"
+                  alt="Scenery"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-transparent" />
+                <div className="absolute top-8 left-8">
+                  <div className="px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold uppercase tracking-widest">
+                    Kapak
+                  </div>
+                </div>
+              </div>
+            </FadeInUp>
 
-            {/* Day Selector Pills */}
-            <div className="mb-12 flex flex-wrap justify-center gap-2">
-              {DAY_LABELS.map((day, index) => (
-                <span
+            {/* 3. Small Clean Feature: SECURE/CLEAN */}
+            <FadeInUp delay={0.3} className="md:col-span-5 lg:col-span-4">
+              <div className="relative h-full min-h-[220px] rounded-[40px] bg-[#FFF8E6] p-10 flex flex-col justify-end overflow-hidden group">
+                <div className="absolute right-[-10px] top-[-10px] w-[180px] opacity-90 transition-transform duration-500 group-hover:scale-110 pointer-events-none">
+                  <img src="/assets/oKEHiwQ5owkmLzr70ZtHeP3HA.avif" alt="Clean Graphic" className="w-full h-auto" />
+                </div>
+                <div className="relative z-10">
+                  <div className="text-[44px] font-serif text-amber-600 leading-none mb-1">
+                    {todayEntries.length}
+                  </div>
+                  <p className="text-amber-900/40 text-[11px] font-bold uppercase tracking-widest leading-none">Bugün Planlanan Yayın</p>
+                </div>
+              </div>
+            </FadeInUp>
+
+            {/* 4. Upcoming List Card: DATA-DRIVEN */}
+            <FadeInUp delay={0.4} className="md:col-span-12 lg:col-span-8">
+              <div className="h-full rounded-[40px] bg-white border border-slate-100 p-8 sm:p-12 shadow-[0_4px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row gap-10">
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-8">
+                    <h4 className="text-[20px] font-[600] text-slate-900 tracking-tight">Akışın Devamı</h4>
+                    <span className="w-2 h-2 rounded-full bg-slate-200" />
+                  </div>
+
+                  <div className="space-y-6">
+                    {todayEntries.slice(1, 4).map((entry) => (
+                      <div key={entry.id} className="flex items-center justify-between group cursor-default">
+                        <div className="flex items-center gap-5">
+                          <div className="w-[50px] text-[12px] font-bold text-slate-300 group-hover:text-indigo-400 transition-colors uppercase">{entry.startsAt}</div>
+                          <div>
+                            <p className="text-[16px] font-[600] text-slate-800 tracking-tight leading-none mb-1">{entry.title}</p>
+                            <p className="text-[12px] text-slate-400 font-medium">{entry.presenterName ?? "Seyr FM"}</p>
+                          </div>
+                        </div>
+                        <div className="h-9 w-9 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-indigo-600 group-hover:text-white transition-all scale-0 group-hover:scale-100">
+                          <ArrowUpRightIcon />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="hidden sm:flex flex-col justify-end">
+                  <Link href="/yayin-akisi" className="inline-flex h-[50px] items-center gap-3 rounded-2xl bg-slate-950 px-6 text-[13px] font-bold text-white transition-all hover:bg-indigo-600 active:scale-95 whitespace-nowrap">
+                    Tümünü Gör
+                    <ArrowUpRightIcon />
+                  </Link>
+                </div>
+              </div>
+            </FadeInUp>
+          </div>
+
+          <FadeInUp delay={0.5} className="mt-16 flex justify-center">
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2 px-4 max-w-full">
+              {DAY_LABELS.map((day, idx) => (
+                <div
                   key={day}
                   className={cn(
-                    "cursor-default rounded-full px-6 py-2.5 text-[11px] font-[600] uppercase tracking-widest transition-all",
-                    index === currentDay
-                      ? "bg-slate-900 text-white shadow-lg"
-                      : "bg-white text-slate-500 hover:bg-slate-100 hover:text-slate-900 border border-slate-200"
+                    "whitespace-nowrap rounded-full px-5 py-2 text-[11px] font-[600] uppercase tracking-widest transition-all",
+                    idx === currentDay ? "bg-slate-900 text-white shadow-md scale-105" : "text-slate-400 bg-white border border-slate-100"
                   )}
                 >
                   {day}
-                </span>
+                </div>
               ))}
             </div>
           </FadeInUp>
 
-          <div className="mx-auto max-w-4xl space-y-4">
-            {weekGroups.filter(g => g.dayOfWeek === currentDay).map((group) => (
-              <FadeInUp key={group.dayOfWeek}>
-                <div className="rounded-[40px] border border-slate-200 bg-white p-4 sm:p-8 shadow-sm">
-                  <div className="mb-8 flex items-center justify-between border-b border-slate-100 pb-6 px-4">
-                    <h3 className="font-serif text-[1.75rem] font-normal tracking-tight text-slate-900">{group.label} <span className="text-slate-400">Akışı</span></h3>
-                    <div className="rounded-full bg-slate-100 px-4 py-1.5 text-[11px] font-[600] uppercase tracking-widest text-slate-500">
-                      {group.entries.length} Yayın
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    {group.entries.map((entry, idx) => (
-                      <article
-                        key={entry.id}
-                        className={cn(
-                          "group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-[24px] p-5 transition-all hover:bg-slate-50",
-                          idx === 0 ? "bg-slate-50 border border-slate-100" : "bg-transparent"
-                        )}
-                      >
-                        <div className="flex items-center gap-6">
-                          <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-[20px] bg-white border border-slate-100 shadow-sm text-slate-900 group-hover:border-slate-200">
-                            <p className="text-sm font-black">{entry.startsAt.split(':')[0]}</p>
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{entry.startsAt.split(':')[1]}</p>
-                          </div>
-                          <div>
-                            <h4 className="text-[17px] font-[600] tracking-tight text-slate-900 mb-1">{entry.title}</h4>
-                            <p className="text-[13px] font-[500] text-slate-500">{entry.presenterName ?? "Seyr FM"} {entry.isReplay && <span className="ml-2 rounded-full bg-slate-200 px-2 py-0.5 text-[10px] text-slate-600">Tekrar</span>}</p>
-                          </div>
-                        </div>
-                        {idx === 0 && (
-                          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-emerald-700 sm:self-center w-max">
-                            <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_2px_rgba(52,211,153,0.2)]"></span>
-                            Aktif
-                          </span>
-                        )}
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              </FadeInUp>
-            ))}
-          </div>
-
-          <FadeInUp delay={0.2}>
-            <div className="mt-12 text-center">
-              <Link href="/yayin-akisi" className="inline-flex items-center gap-2 text-[13px] font-[600] uppercase tracking-widest text-slate-900 hover:text-sky-600 transition-colors group">
-                Haftalık Tam Liste <span className="transition-transform group-hover:translate-x-1">→</span>
-              </Link>
-            </div>
-          </FadeInUp>
         </div>
       </section >
     </main >
