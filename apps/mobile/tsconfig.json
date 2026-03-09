@@ -1,0 +1,11 @@
+{
+  "extends": "../../packages/config/tsconfig.expo.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@seyir/contracts": ["../../packages/contracts/src/index.ts"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts"]
+}

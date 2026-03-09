@@ -1,0 +1,25 @@
+{
+  "name": "seyirdijital-platform",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.16.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:web": "pnpm --filter @seyir/web dev",
+    "dev:mobile": "pnpm --filter @seyir/mobile dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "import:legacy": "tsx scripts/import-legacy.ts",
+    "import:legacy:apply": "pnpm --filter @seyir/web import:legacy:apply",
+    "report:legacy": "tsx scripts/legacy-count-report.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.4.0",
+    "turbo": "^2.0.14",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^2.1.1"
+  }
+}

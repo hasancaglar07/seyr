@@ -1,0 +1,10 @@
+{
+  "name": "@seyir/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "tsconfig.next.json",
+    "tsconfig.expo.json"
+  ]
+}
