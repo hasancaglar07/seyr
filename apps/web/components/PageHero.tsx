@@ -2,8 +2,6 @@ import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-type RenderableNode = Exclude<ReactNode, boolean>;
-
 type HeroStat = {
   label: string;
   value: string;
@@ -14,9 +12,9 @@ type PageHeroProps = {
   eyebrow?: string;
   title: string;
   description?: string | null;
-  actions?: RenderableNode;
+  actions?: unknown;
   stats?: HeroStat[];
-  aside?: RenderableNode;
+  aside?: unknown;
   contrast?: boolean;
   className?: string;
   contentClassName?: string;
@@ -39,8 +37,11 @@ export function PageHero({
   descriptionClassName,
   asideClassName,
 }: PageHeroProps) {
+  const actionsContent = actions as ReactNode;
+  const asideContent = aside as ReactNode;
+
   return (
-    <section className={cn("page-hero", aside ? "page-hero-split" : "", contrast ? "page-hero-contrast" : "", className)}>
+    <section className={cn("page-hero", asideContent ? "page-hero-split" : "", contrast ? "page-hero-contrast" : "", className)}>
       <div className={cn("space-y-7", contentClassName)}>
         {eyebrow ? (
           <Badge
@@ -60,7 +61,7 @@ export function PageHero({
           ) : null}
         </div>
 
-        {actions != null ? <div className="page-hero-actions">{actions}</div> : null}
+        {actionsContent != null ? <div className="page-hero-actions">{actionsContent}</div> : null}
 
         {stats?.length ? (
           <div className="page-hero-stats">
@@ -75,7 +76,7 @@ export function PageHero({
         ) : null}
       </div>
 
-      {aside != null ? <div className={cn("page-hero-aside", asideClassName)}>{aside}</div> : null}
+      {asideContent != null ? <div className={cn("page-hero-aside", asideClassName)}>{asideContent}</div> : null}
     </section>
   );
 }
