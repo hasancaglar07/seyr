@@ -10,3 +10,4 @@ coverage
 .expo
 .DS_Store
 *.log
+.scratch
