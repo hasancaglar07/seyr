@@ -149,8 +149,8 @@ export default async function HomePage() {
 
   return (
     <main className="bg-white">
-      <section className="relative w-full mb-8 sm:mb-12">
-        <div className="relative flex min-h-[85vh] sm:min-h-[850px] w-full flex-col items-center justify-between rounded-[24px] sm:rounded-[48px] overflow-hidden bg-slate-100 pb-16 sm:pb-24">
+      <section className="relative w-full mb-4 sm:mb-6">
+        <div className="relative flex min-h-[85vh] sm:min-h-[800px] w-full flex-col items-center justify-between rounded-[24px] sm:rounded-[48px] overflow-hidden bg-slate-100 pb-12 sm:pb-20">
           {/* Fullscreen Background Image Slider */}
           <HeroSlider />
 
@@ -193,7 +193,7 @@ export default async function HomePage() {
       </section>
 
       {/* 4. PROGRAMS SECTION (Solidroad Minimalist Cards) */}
-      <section id="programlar" className="bg-white pt-4 sm:pt-6 pb-12 sm:pb-16">
+      <section id="programlar" className="bg-white pt-2 sm:pt-4 pb-10 sm:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeInUp>
             <div className="mx-auto max-w-[750px] text-center mb-12 sm:mb-16 flex flex-col items-center">
@@ -256,7 +256,7 @@ export default async function HomePage() {
       </section >
 
       {/* 4.5 ABOUT / INFO SECTION (Solidroad Case Study Style) */}
-      <section className="bg-[#CEEBCB] py-10 sm:py-16 w-full flex justify-center overflow-hidden">
+      <section className="bg-[#CEEBCB] py-8 sm:py-12 w-full flex justify-center overflow-hidden">
         <div className="mx-auto w-full max-w-[1050px] px-6 sm:px-8 grid grid-cols-1 md:grid-cols-[340px_1fr] gap-10 md:gap-16 items-center">
 
           {/* Left Side: Large Rounded Image */}
@@ -326,8 +326,8 @@ export default async function HomePage() {
       </section>
 
       {/* 5. PRESENTERS SECTION (Solidroad Marquee Collage Style) */}
-      <section id="programcilar" className="bg-white pt-12 pb-16 overflow-hidden">
-        <FadeInUp className="mx-auto max-w-[850px] px-6 text-center mb-12 flex justify-center">
+      <section id="programcilar" className="bg-white pt-10 pb-14 overflow-hidden">
+        <FadeInUp className="mx-auto max-w-[850px] px-6 text-center mb-10 flex justify-center">
           <h2 className="text-[22px] sm:text-[32px] md:text-[38px] font-[500] leading-[1.2] text-[#0A3D39] tracking-[-0.035em] text-balance">
             Seyr FM yayıncıları, her dinleyici etkileşiminde kalite çıtasını yükselterek tüm ruhsal deneyimleri sürekli iyileştirir.
           </h2>
@@ -381,7 +381,7 @@ export default async function HomePage() {
       </section>
 
       {/* 6. WEEKLY SCHEDULE SECTION (Solidroad Bento Grid Style) */}
-      <section id="akis" className="bg-white py-12 sm:py-20 overflow-hidden">
+      <section id="akis" className="bg-white py-10 sm:py-16 overflow-hidden">
         <div className="mx-auto max-w-[1100px] px-6">
 
           {/* Bento Grid Layout - Solidroad Style */}

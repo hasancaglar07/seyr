@@ -45,7 +45,7 @@ export function DynamicPlayerUI({ stream, nextEntry }: DynamicPlayerProps) {
                 className={cn(
                     "pointer-events-auto flex items-center gap-4 rounded-2xl sm:rounded-[20px] backdrop-blur-2xl transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] absolute",
                     isHeroMode
-                        ? "bottom-[30vh] sm:bottom-[28vh] w-[calc(100%-2rem)] max-w-[720px] px-5 py-3.5 sm:px-6 sm:py-4 border border-white/10 bg-slate-950/40 text-white shadow-[0_32px_64px_rgba(0,0,0,0.4)] hover:scale-[1.02] hover:bg-slate-950/50"
+                        ? "bottom-[22vh] sm:bottom-[20vh] w-[calc(100%-2rem)] max-w-[720px] px-5 py-3.5 sm:px-6 sm:py-4 border border-white/10 bg-slate-950/40 text-white shadow-[0_32px_64px_rgba(0,0,0,0.4)] hover:scale-[1.02] hover:bg-slate-950/50"
                         : "bottom-8 w-[calc(100%-3rem)] max-w-6xl px-4 py-3 border border-slate-800/80 bg-slate-950/90 text-white shadow-[0_24px_50px_rgba(0,0,0,0.5)] scale-100"
                 )}
             >
