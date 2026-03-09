@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -37,8 +36,8 @@ export function PageHero({
   descriptionClassName,
   asideClassName,
 }: PageHeroProps) {
-  const actionsContent = actions as ReactNode;
-  const asideContent = aside as ReactNode;
+  const actionsContent = actions;
+  const asideContent = aside;
 
   return (
     <section className={cn("page-hero", asideContent ? "page-hero-split" : "", contrast ? "page-hero-contrast" : "", className)}>
@@ -61,7 +60,7 @@ export function PageHero({
           ) : null}
         </div>
 
-        {actionsContent != null ? <div className="page-hero-actions">{actionsContent}</div> : null}
+        {actionsContent != null ? <div className="page-hero-actions">{actionsContent as any}</div> : null}
 
         {stats?.length ? (
           <div className="page-hero-stats">
@@ -76,7 +75,7 @@ export function PageHero({
         ) : null}
       </div>
 
-      {asideContent != null ? <div className={cn("page-hero-aside", asideClassName)}>{asideContent}</div> : null}
+      {asideContent != null ? <div className={cn("page-hero-aside", asideClassName)}>{asideContent as any}</div> : null}
     </section>
   );
 }
