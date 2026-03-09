@@ -23,6 +23,10 @@ importers:
       vitest:
         specifier: ^2.1.1
         version: 2.1.9(@types/node@24.12.0)(lightningcss@1.31.1)(msw@2.12.10(@types/node@24.12.0)(typescript@5.9.3))(terser@5.46.0)
+    optionalDependencies:
+      '@tailwindcss/oxide-linux-x64-gnu':
+        specifier: 4.2.1
+        version: 4.2.1
 
   apps/mobile:
     dependencies:
@@ -4143,7 +4147,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+    deprecated: Glob versions prior to v9 are no longer supported
 
   globby@11.1.0:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}

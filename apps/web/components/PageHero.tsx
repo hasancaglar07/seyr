@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
+type RenderableNode = Exclude<ReactNode, boolean>;
+
 type HeroStat = {
   label: string;
   value: string;
@@ -12,9 +14,9 @@ type PageHeroProps = {
   eyebrow?: string;
   title: string;
   description?: string | null;
-  actions?: ReactNode;
+  actions?: RenderableNode;
   stats?: HeroStat[];
-  aside?: ReactNode;
+  aside?: RenderableNode;
   contrast?: boolean;
   className?: string;
   contentClassName?: string;
@@ -58,7 +60,7 @@ export function PageHero({
           ) : null}
         </div>
 
-        {actions ? <div className="page-hero-actions">{actions}</div> : null}
+        {actions != null ? <div className="page-hero-actions">{actions}</div> : null}
 
         {stats?.length ? (
           <div className="page-hero-stats">
@@ -73,7 +75,7 @@ export function PageHero({
         ) : null}
       </div>
 
-      {aside ? <div className={cn("page-hero-aside", asideClassName)}>{aside}</div> : null}
+      {aside != null ? <div className={cn("page-hero-aside", asideClassName)}>{aside}</div> : null}
     </section>
   );
 }
